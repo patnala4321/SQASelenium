@@ -1,0 +1,21 @@
+<html><body>
+<form name="frm">
+<select name='OptWeb'>
+<option value='Yahoo'>Yahoo</option>
+<option value='Google'>Google</option>
+<option value='Portnov'>Portnov</option>
+<option value='Microsoft'>Microsoft</option>
+<option value='Facebook'>xyz</option>
+<option value='Redbus'>RedBus</option>
+</select>
+<input type='button' name='btnGo' value='Go' onclick="switch(frm.OptWeb.value) {
+case 'Yahoo': location.href= 'http://www.yahoo.com'; break;
+case 'Google': location.href= 'http://www.google.com'; break;
+case 'Portnov': location.href= 'http://www.portnov.com'; break;
+case 'Microsoft': location.href= 'http://www.microsoft.com'; break;
+case 'Redbus': location.href= 'https://www.redbus.in/'; break;
+case 'Facebook': location.href='https://www.facebook.com/';break; }">
+</form>
+</body></html>
+
+
