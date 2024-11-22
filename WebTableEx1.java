@@ -10,34 +10,44 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebTableEx1 {
-	
 
 	public static void main(String args[]) throws InterruptedException {
-		
+
 		WebDriver driver = new ChromeDriver();
-		
+
 		driver.get("file:///D:/Local%20Disk/Softwares/Selenium/Selenium_Student_SW/HtmlFiles/WebTable.html");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	
 
-		//Finding number of Rows
+		// Finding number of Rows
 
 		List<WebElement> rowsNumber = driver.findElements(By.xpath("//table[@id='idCourse']/tbody/tr[1]/td"));
 		int rowCount = rowsNumber.size();
 		System.out.println("No of rows in this table : " + rowCount);
 
-		//Finding number of Columns
-		
+		// Finding number of Columns
+
 		List<WebElement> columnsNumber = driver.findElements(By.xpath("//table[@id='idCourse']/tbody/tr"));
 		int columnCount = columnsNumber.size();
 		System.out.println("No of columns in this table : " + columnCount);
 
-		//Finding cell value at 4th row and 3rd column
+		// Finding cell value at 4th row and 3rd column
 
 		WebElement cellAddress = driver.findElement(By.xpath("//table[@id='idCourse']/tbody/tr[3]/td[3]"));
 		String value = cellAddress.getText();
-		System.out.println("The Cell Value is : " +value);
+		System.out.println("The Cell Value is : " + value);
+
+		WebElement cell = null;
+		String cellValue = null;
+		for (int i = 1; i <= 7; i++) {
+			for (int j = 1; j <= 4; j++) {
+				cell = driver.findElement(By.xpath("//table[@id='idCourse']/tbody/tr[" +i + "]/td[" + j + "]"));
+
+				cellValue = cell.getText();
+				System.out.format("%10s",cellValue);
+			}
+			System.out.println();
+		}
 
 		driver.quit();
-}
+	}
 }
