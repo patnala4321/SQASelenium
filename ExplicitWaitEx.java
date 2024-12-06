@@ -23,23 +23,21 @@ public class ExplicitWaitEx {
 		driver.findElement(By.name("username")).sendKeys("Admin");
 		driver.findElement(By.name("password")).sendKeys("admin123");
 	//	driver.findElement(By.xpath("//button[@type='submit']")).click();
-
 		
-
 		
+		/** In single line */
 		//new WebDriverWait(driver,Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']"))).click();
 		
+		/** In two lines */
+		
+		// Wait wait=new WebDriverWait(driver,Duration.ofSeconds(15));
+		//((WebElement) wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")))).click();
+		
+	    //In threee lines */
 		Wait wait=new WebDriverWait(driver,Duration.ofSeconds(15));
-		
-	//	((WebElement) wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")))).click();
-		
 		WebElement ele= (WebElement)wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-		
 		ele.click();
 		
-		
-		
-
 		Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//p[@class='oxd-userdropdown-name']")).click();
